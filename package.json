@@ -27,5 +27,6 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" "
-  }
+  },
+  "packageManager": "yarn@3.8.7"
 }

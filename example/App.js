@@ -1,9 +1,11 @@
 /* @flow */
 
-import React, { PureComponent, Component } from 'react';
-import { View, Text, StyleSheet, Animated, Image, ScrollView, FlatList } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, Animated, Image, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import ShimmerPlaceholder from './src/ShimmerPlaceholder'
+import { createShimmerPlaceholder } from './src/ShimmerPlaceholder'
+
+const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient)
 
 const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, randomWidth }) => {
   // Handle visible
@@ -99,7 +101,7 @@ export default () => {
     }, 2000)
   }, [])
   return (
-    <ScrollView style={styles.container} contentInset={{ bottom: 150 }}>
+    <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 60 }}>
       <Text style={styles.title}> React Native Shimmer Placeholder </Text>
       <Text style={styles.sessionTitle}>Simple</Text>
       <ShimmerPlaceholder
