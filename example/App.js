@@ -1,17 +1,14 @@
 /* @flow */
 
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { createShimmerPlaceholder } from '@hortau/react-native-native-shimmer-placeholder';
-
-const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient)
+import ShimmerPlaceholder from '@hortau/react-native-shimmer-placeholder';
 
 const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, randomWidth }) => {
   // Handle visible
-  const [visible, setVisible] = React.useState(false)
-  const [avatarVisible, setAvatarVisible] = React.useState(false)
-  React.useEffect(() => {
+  const [visible, setVisible] = useState(false)
+  const [avatarVisible, setAvatarVisible] = useState(false)
+  useEffect(() => {
     setTimeout(() => {
       hasData && setVisible(true)
     }, 2000)
@@ -26,7 +23,6 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
           isReversed={isReversed}
           shimmerColors={shimmerColors}
           shimmerStyle={[hasBorder && { borderRadius: 40 }]}
-          stopAutoRun
           visible={avatarVisible}
         >
           {hasData && <Image
@@ -42,7 +38,6 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}
-            stopAutoRun
             visible={visible}
           >
             <Text style={{ flex: 1, flexWrap: 'wrap', width: 200 }}>
@@ -54,7 +49,6 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}
-            stopAutoRun
             visible={visible}
           />
           <ShimmerPlaceholder
@@ -62,7 +56,6 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}
-            stopAutoRun
             visible={visible}
           />
         </View>
@@ -74,9 +67,9 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
 
 
 export default () => {
-  const [visible, setVisible] = React.useState(false)
-  const [avatarVisible, setAvatarVisible] = React.useState(false)
-  React.useEffect(() => {
+  const [visible, setVisible] = useState(false)
+  const [avatarVisible, setAvatarVisible] = useState(false)
+  useEffect(() => {
     setTimeout(() => {
       setVisible(true)
     }, 2000)
