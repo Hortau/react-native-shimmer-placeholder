@@ -1,35 +1,17 @@
 /* @flow */
 
-import React from 'react';
-import { View, Text, StyleSheet, Animated, Image, ScrollView } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { createShimmerPlaceholder } from './src/ShimmerPlaceholder'
-
-const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient)
+import { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import ShimmerPlaceholder from '@hortau/react-native-shimmer-placeholder';
 
 const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, randomWidth }) => {
   // Handle visible
-  const [visible, setVisible] = React.useState(false)
-  const [avatarVisible, setAvatarVisible] = React.useState(false)
-  React.useEffect(() => {
+  const [visible, setVisible] = useState(false)
+  const [avatarVisible, setAvatarVisible] = useState(false)
+  useEffect(() => {
     setTimeout(() => {
       hasData && setVisible(true)
     }, 2000)
-  }, [])
-
-  // Handle animation
-  const avatarRef = React.createRef()
-  const firstLineRef = React.createRef()
-  const secondLineRef = React.createRef()
-  const thirdLineRef = React.createRef()
-
-  React.useEffect(() => {
-    const facebookAnimated = Animated.stagger(400, [avatarRef.current.getAnimated(), Animated.parallel([
-      firstLineRef.current.getAnimated(),
-      secondLineRef.current.getAnimated(),
-      thirdLineRef.current.getAnimated()
-    ])])
-    Animated.loop(facebookAnimated).start();
   }, [])
 
   return (
@@ -38,11 +20,9 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
         <ShimmerPlaceholder
           width={80} height={80}
           style={{ marginRight: 10 }}
-          ref={avatarRef}
           isReversed={isReversed}
           shimmerColors={shimmerColors}
           shimmerStyle={[hasBorder && { borderRadius: 40 }]}
-          stopAutoRun
           visible={avatarVisible}
         >
           {hasData && <Image
@@ -55,11 +35,9 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
           <ShimmerPlaceholder
             width={randomWidth ? 250 : 200}
             style={{}}
-            ref={firstLineRef}
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}
-            stopAutoRun
             visible={visible}
           >
             <Text style={{ flex: 1, flexWrap: 'wrap', width: 200 }}>
@@ -68,20 +46,16 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
           </ShimmerPlaceholder>
           <ShimmerPlaceholder
             width={randomWidth ? 150 : 200}
-            ref={secondLineRef}
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}
-            stopAutoRun
             visible={visible}
           />
           <ShimmerPlaceholder
             width={200}
-            ref={thirdLineRef}
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}
-            stopAutoRun
             visible={visible}
           />
         </View>
@@ -93,9 +67,9 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
 
 
 export default () => {
-  const [visible, setVisible] = React.useState(false)
-  const [avatarVisible, setAvatarVisible] = React.useState(false)
-  React.useEffect(() => {
+  const [visible, setVisible] = useState(false)
+  const [avatarVisible, setAvatarVisible] = useState(false)
+  useEffect(() => {
     setTimeout(() => {
       setVisible(true)
     }, 2000)
