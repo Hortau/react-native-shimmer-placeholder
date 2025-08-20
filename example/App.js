@@ -1,9 +1,9 @@
 /* @flow */
 
 import React from 'react';
-import { View, Text, StyleSheet, Animated, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { createShimmerPlaceholder } from './src/ShimmerPlaceholder'
+import { createShimmerPlaceholder } from '@hortau/react-native-native-shimmer-placeholder';
 
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient)
 
@@ -17,28 +17,12 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
     }, 2000)
   }, [])
 
-  // Handle animation
-  const avatarRef = React.createRef()
-  const firstLineRef = React.createRef()
-  const secondLineRef = React.createRef()
-  const thirdLineRef = React.createRef()
-
-  React.useEffect(() => {
-    const facebookAnimated = Animated.stagger(400, [avatarRef.current.getAnimated(), Animated.parallel([
-      firstLineRef.current.getAnimated(),
-      secondLineRef.current.getAnimated(),
-      thirdLineRef.current.getAnimated()
-    ])])
-    Animated.loop(facebookAnimated).start();
-  }, [])
-
   return (
     <View>
       <View style={{ flexDirection: "row" }}>
         <ShimmerPlaceholder
           width={80} height={80}
           style={{ marginRight: 10 }}
-          ref={avatarRef}
           isReversed={isReversed}
           shimmerColors={shimmerColors}
           shimmerStyle={[hasBorder && { borderRadius: 40 }]}
@@ -55,7 +39,6 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
           <ShimmerPlaceholder
             width={randomWidth ? 250 : 200}
             style={{}}
-            ref={firstLineRef}
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}
@@ -68,7 +51,6 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
           </ShimmerPlaceholder>
           <ShimmerPlaceholder
             width={randomWidth ? 150 : 200}
-            ref={secondLineRef}
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}
@@ -77,7 +59,6 @@ const FacebookContent = ({ isReversed, shimmerColors, hasData, hasBorder, random
           />
           <ShimmerPlaceholder
             width={200}
-            ref={thirdLineRef}
             isReversed={isReversed}
             shimmerColors={shimmerColors}
             shimmerStyle={[hasBorder && { borderRadius: 20 }]}

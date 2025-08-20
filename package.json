@@ -1,32 +1,33 @@
 {
-  "name": "react-native-shimmer-placeholder",
-  "version": "2.0.8",
-  "author": "Zaku",
+  "name": "@hortau/react-native-shimmer-placeholder",
+  "version": "1.0.0",
+  "author": "Hortau",
   "bugs": {
-    "url": "https://github.com/tomzaku/react-native-shimmer-placeholder/issues"
+    "url": "https://github.com/hortau/react-native-shimmer-placeholder/issues"
   },
   "directories": {
     "example": "example"
   },
-  "homepage": "https://github.com/tomzaku/react-native-shimmer-placeholder#readme",
+  "homepage": "https://github.com/hortau/react-native-shimmer-placeholder#readme",
   "keywords": [
     "loading",
     "placeholder",
     "react-native",
     "shimmer"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "license": "MIT",
-  "main": "./lib/ShimmerPlaceholder.js",
+  "main": "./src/ShimmerPlaceholder.js",
   "peerDependencies": {
-    "prop-types": ">=15.6.0",
     "react-native-linear-gradient": ">=2.4.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomzaku/react-native-shimmer-placeholder.git"
+    "url": "git+https://github.com/hortau/react-native-shimmer-placeholder.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" "
-  },
-  "packageManager": "yarn@3.8.7"
+  }
 }

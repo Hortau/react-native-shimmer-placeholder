@@ -2,32 +2,22 @@
 <h2 align="center">
   React Native Shimmer Placeholder
 </h2>
-<p align="center">
-  <a href="https://www.npmjs.com/package/react-native-shimmer-placeholder"><img src="https://img.shields.io/npm/v/react-native-shimmer-placeholder.svg?style=flat-square"></a>
-  <a href="https://www.npmjs.com/package/react-native-shimmer-placeholder"><img src="https://img.shields.io/npm/dm/react-native-shimmer-placeholder.svg?style=flat-square"></a>
-  <a href="https://packagephobia.now.sh/badge?p=react-native-shimmer-placeholder@1.0.29"><img src="https://packagephobia.now.sh/badge?p=react-native-shimmer-placeholder@1.0.29"></a>
-</p>
 <h5 align="center">
 Placeholder for both IOS and Android
 </h5>
 
 <p align="center">
-<img src="https://github.com/tomzaku/react-native-shimmer-placeholder/blob/master/example.gif?raw=true">
+<img src="https://github.com/hortau/react-native-shimmer-placeholder/blob/master/example.gif?raw=true">
 </p>
-<!-- <p align="center">
-<img src="https://github.com/tomzaku/react-native-shimmer-placeholder/blob/master/example2.gif?raw=true">
-</p> -->
+
+## Original Library
+This package is a modern fork of [react-native-shimmer-placeholder](https://www.npmjs.com/package/react-native-shimmer-placeholder), but updated for React Native Reanimated.
 
 ## Get Started
-![install size](https://packagephobia.now.sh/badge?p=react-native-shimmer-placeholder@1.0.29)
 
 ### Installation
 
-`npm i react-native-shimmer-placeholder --save`
-
-or
-
-`yarn add react-native-shimmer-placeholder`
+`yarn add @hortau/react-native-shimmer-placeholder`
 
 
 ### Usage
@@ -36,7 +26,7 @@ or
 
 For `expo`
 ``` jsx
-import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder'
+import { createShimmerPlaceholder } from '@hortau/react-native-shimmer-placeholder'
 import { LinearGradient } from 'expo-linear-gradient';
 
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient)
@@ -52,7 +42,7 @@ const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient)
 or 
 
 ``` jsx
-import ShimmerPlaceHolder from 'react-native-shimmer-placeholder'
+import ShimmerPlaceHolder from '@hortau/react-native-shimmer-placeholder'
 import { LinearGradient } from 'expo-linear-gradient';
 
 
@@ -67,7 +57,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 For `react-native-linear-gradient`
 ``` jsx
 import LinearGradient from 'react-native-linear-gradient';
-import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder'
+import { createShimmerPlaceholder } from '@hortau/react-native-shimmer-placeholder'
 
 const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient)
 
@@ -78,7 +68,7 @@ const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient)
 or
 ```jsx
 import LinearGradient from 'react-native-linear-gradient';
-import ShimmerPlaceHolder from 'react-native-shimmer-placeholder'
+import ShimmerPlaceHolder from '@hortau/react-native-shimmer-placeholder'
 
 ...
 
@@ -90,7 +80,7 @@ import ShimmerPlaceHolder from 'react-native-shimmer-placeholder'
 #### Connect more components
 
 <p align="center">
-<img src="https://github.com/tomzaku/react-native-shimmer-placeholder/blob/master/facebook-load-data.gif?raw=true">
+<img src="https://github.com/hortau/react-native-shimmer-placeholder/blob/master/facebook-load-data.gif?raw=true">
 </p>
 
 ```jsx
@@ -148,7 +138,7 @@ const FacebookContent = () => {
 }
 ```
 
-More Detail see [this](https://github.com/tomzaku/react-native-shimmer-placeholder/blob/master/example/App.js)
+More Detail see [this](https://github.com/hortau/react-native-shimmer-placeholder/blob/master/example/App.js)
 
 ### Props
 
@@ -164,18 +154,11 @@ More Detail see [this](https://github.com/tomzaku/react-native-shimmer-placehold
 | **`duration`**               | Duration of shimmer over a row                                                                         | number    | 1000                                              |
 | **`height`**                 | Height of row                                                                                          | number    | 15                                                |
 | **`shimmerWidthPercent`**    | Percent of shimmer width                                                                               | number    | 1.0                                               |
-| **`isReversed`**             | Reverse direction of animation                                                                         | boolean   | `false`                                           |
-| **`stopAutoRun`**            | Stop running shimmer animation at beginning                                                            | boolean   | `false`                                           |
-| **`isInteraction`**          | Defines whether or not the shimmer animation creates an interaction handle on the `InteractionManager` | boolean   | `true`                                            |
+| **`isReversed`**             | Reverse direction of animation                                                                         | boolean   | `false`                                           |                                         |
 | **`shimmerColors`**          | Colors of the shimmer.                                                                                 | string[]  | *['#ebebeb', '#c5c5c5', '#ebebeb']*                 |
 | **`containerProps`**         | Props passed to the outermost View                                                                     | ViewProps | undefined                                         |
 | **`shimmerContainerProps`**  | Props passed to the View which contains the loading animation                                          | ViewProps | undefined                                         |
 | **`childrenContainerProps`** | Props passed to the View which contains the children                                                   | ViewProps | undefined                                         |
-
-### Methods
-| Method            | Description                 | Type     |
-| ----------------- | --------------------------- | -------- |
-| **`getAnimated`** | get Animated of Placeholder | Animated |
 
 ### Helpers
 
@@ -204,6 +187,10 @@ More Detail see [this](https://github.com/tomzaku/react-native-shimmer-placehold
 
 Welcome help me to build this awesome lib.
 
+## Publish to GitHub Packages
+    npm login --scope=@hortau --auth-type=legacy --registry=https://npm.pkg.github.com
+    npm publish --access public
+
 ### License
 
-[MIT](https://github.com/tomzaku/react-native-shimmer-placeholder/blob/master/LICENSE)
+[MIT](https://github.com/hortau/react-native-shimmer-placeholder/blob/master/LICENSE)
