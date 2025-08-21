@@ -11,6 +11,8 @@ import Reanimated, {
 const AnimatedView = Reanimated.View;
 import { Svg, Defs, LinearGradient, Stop, Rect } from 'react-native-svg';
 
+let shimmerIdCounter = 0;
+
 const ShimmerPlaceholder = ({ duration = 1000, delay = 0, ...props }) => {
   const animationProgress = useSharedValue(-1);
   return <BasedShimmerPlaceholder {...props} animationProgress={animationProgress} duration={duration} delay={delay} />;
@@ -61,7 +63,8 @@ const BasedShimmerPlaceholder = (props) => {
 
   const gradientIdRef = useRef(null);
   if (!gradientIdRef.current) {
-    gradientIdRef.current = `shimmer-${Math.random().toString(36).slice(2, 9)}`;
+    shimmerIdCounter += 1;
+    gradientIdRef.current = `shimmer-${shimmerIdCounter}`;
   }
 
   const gradientId = gradientIdRef.current;
