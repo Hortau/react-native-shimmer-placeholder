@@ -1,4 +1,4 @@
-declare module 'react-native-shimmer-placeholder' {
+declare module '@hortau/react-native-shimmer-placeholder' {
 
     import * as React from 'react';
     import { ViewProps } from 'react-native';
