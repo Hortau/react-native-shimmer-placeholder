@@ -60,7 +60,8 @@ More Detail see [this](https://github.com/hortau/react-native-shimmer-placeholde
 Welcome help me to build this awesome lib.
 
 ## Publish to GitHub Packages
-    npm login --scope=@hortau --auth-type=legacy --registry=https://npm.pkg.github.com
+    yarn build
+    export NPM_TOKEN=ghp_xxx
     npm publish --access public
 
 ### License

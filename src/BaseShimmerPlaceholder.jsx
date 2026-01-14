@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { StyleSheet, View } from 'react-native';
-import Reanimated, {
-  useSharedValue,
+import { View, StyleSheet } from 'react-native';
+import Reanimated,{
   useAnimatedStyle,
   withRepeat,
   withTiming,
@@ -13,12 +12,7 @@ import { Svg, Defs, LinearGradient, Stop, Rect } from 'react-native-svg';
 
 let shimmerIdCounter = 0;
 
-const ShimmerPlaceholder = ({ duration = 1000, delay = 0, ...props }) => {
-  const animationProgress = useSharedValue(-1);
-  return <BasedShimmerPlaceholder {...props} animationProgress={animationProgress} duration={duration} delay={delay} />;
-};
-
-const BasedShimmerPlaceholder = (props) => {
+const BaseShimmerPlaceholder = (props) => {
   const {
     width = 200,
     height = 15,
@@ -112,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShimmerPlaceholder;
+export default BaseShimmerPlaceholder;
